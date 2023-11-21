@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCABD47B-06C4-4BDD-9FFB-292295438111}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AEPSProject</RootNamespace>
+    <AssemblyName>AEPSProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44317</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Css\css\app-rtl.min.css" />
+    <Content Include="Css\css\app.min.css" />
+    <Content Include="Css\css\bootstrap-rtl.min.css" />
+    <Content Include="Css\css\bootstrap.min.css" />
+    <Content Include="Css\css\custom-rtl.min.css" />
+    <Content Include="Css\css\custom.min.css" />
+    <Content Include="Css\css\icons.min.css" />
+    <Content Include="Css\fonts\la-brands-400.svg" />
+    <Content Include="Css\fonts\la-regular-400.svg" />
+    <Content Include="Css\fonts\la-solid-900.svg" />
+    <Content Include="Css\images\auth-offline.gif" />
+    <Content Include="Css\images\auth-one-bg.jpg" />
+    <Content Include="Css\images\bg-d.png" />
+    <Content Include="Css\images\brands\bitbucket.png" />
+    <Content Include="Css\images\brands\dribbble.png" />
+    <Content Include="Css\images\brands\dropbox.png" />
+    <Content Include="Css\images\brands\github.png" />
+    <Content Include="Css\images\brands\mail_chimp.png" />
+    <Content Include="Css\images\brands\slack.png" />
+    <Content Include="Css\images\chat-bg-pattern.png" />
+    <Content Include="Css\images\clients\amazon.svg" />
+    <Content Include="Css\images\clients\lenovo.svg" />
+    <Content Include="Css\images\clients\paypal.svg" />
+    <Content Include="Css\images\clients\shopify.svg" />
+    <Content Include="Css\images\clients\verizon.svg" />
+    <Content Include="Css\images\clients\walmart.svg" />
+    <Content Include="Css\images\comingsoon.png" />
+    <Content Include="Css\images\companies\img-1.png" />
+    <Content Include="Css\images\companies\img-2.png" />
+    <Content Include="Css\images\companies\img-3.png" />
+    <Content Include="Css\images\companies\img-4.png" />
+    <Content Include="Css\images\companies\img-5.png" />
+    <Content Include="Css\images\companies\img-6.png" />
+    <Content Include="Css\images\companies\img-7.png" />
+    <Content Include="Css\images\companies\img-8.png" />
+    <Content Include="Css\images\cover-pattern.png" />
+    <Content Include="Css\images\demos\creative.png" />
+    <Content Include="Css\images\demos\default.png" />
+    <Content Include="Css\images\demos\interactive.png" />
+    <Content Include="Css\images\demos\material.png" />
+    <Content Include="Css\images\demos\minimal.png" />
+    <Content Include="Css\images\demos\modern.png" />
+    <Content Include="Css\images\demos\saas.png" />
+    <Content Include="Css\images\error.png" />
+    <Content Include="Css\images\error.svg" />
+    <Content Include="Css\images\error400-cover.png" />
+    <Content Include="Css\images\error500.png" />
+    <Content Include="Css\images\faq-img.png" />
+    <Content Include="Css\images\favicon.ico" />
+    <Content Include="Css\images\file.png" />
+    <Content Include="Css\images\flags\china.svg" />
+    <Content Include="Css\images\flags\french.svg" />
+    <Content Include="Css\images\flags\germany.svg" />
+    <Content Include="Css\images\flags\italy.svg" />
+    <Content Include="Css\images\flags\russia.svg" />
+    <Content Include="Css\images\flags\spain.svg" />
+    <Content Include="Css\images\flags\us.svg" />
+    <Content Include="Css\images\giftbox.png" />
+    <Content Include="Css\images\illustrator-1.png" />
+    <Content Include="Css\images\landing\bg-pattern.png" />
+    <Content Include="Css\images\landing\features\img-1.png" />
+    <Content Include="Css\images\landing\features\img-2.png" />
+    <Content Include="Css\images\landing\features\img-3.png" />
+    <Content Include="Css\images\landing\img-pattern.png" />
+    <Content Include="Css\images\landing\process-arrow-img.png" />
+    <Content Include="Css\images\logo-dark.png" />
+    <Content Include="Css\images\logo-light.png" />
+    <Content Include="Css\images\logo-sm.png" />
+    <Content Include="Css\images\mac-img.png" />
+    <Content Include="Css\images\maintenance.png" />
+    <Content Include="Css\images\modal-bg.png" />
+    <Content Include="Css\images\modals\login.png" />
+    <Content Include="Css\images\modals\signup.png" />
+    <Content Include="Css\images\modals\subscribe.png" />
+    <Content Include="Css\images\modals\success-payment.png" />
+    <Content Include="Css\images\nft\add.png" />
+    <Content Include="Css\images\nft\bg-home.jpg" />
+    <Content Include="Css\images\nft\bg-pattern.png" />
+    <Content Include="Css\images\nft\gif\img-1.gif" />
+    <Content Include="Css\images\nft\gif\img-2.gif" />
+    <Content Include="Css\images\nft\gif\img-3.gif" />
+    <Content Include="Css\images\nft\gif\img-4.gif" />
+    <Content Include="Css\images\nft\gif\img-5.gif" />
+    <Content Include="Css\images\nft\img-01.jpg" />
+    <Content Include="Css\images\nft\img-02.jpg" />
+    <Content Include="Css\images\nft\img-03.jpg" />
+    <Content Include="Css\images\nft\img-04.jpg" />
+    <Content Include="Css\images\nft\img-05.jpg" />
+    <Content Include="Css\images\nft\img-06.jpg" />
+    <Content Include="Css\images\nft\marketplace.png" />
+    <Content Include="Css\images\nft\money.png" />
+    <Content Include="Css\images\nft\sell.png" />
+    <Content Include="Css\images\nft\wallet.png" />
+    <Content Include="Css\images\nft\wallet\alpha.png" />
+    <Content Include="Css\images\nft\wallet\binance.png" />
+    <Content Include="Css\images\nft\wallet\coinbase.png" />
+    <Content Include="Css\images\nft\wallet\enjin.png" />
+    <Content Include="Css\images\nft\wallet\kukai.png" />
+    <Content Include="Css\images\nft\wallet\math.png" />
+    <Content Include="Css\images\nft\wallet\metamask.png" />
+    <Content Include="Css\images\products\img-1.png" />
+    <Content Include="Css\images\products\img-10.png" />
+    <Content Include="Css\images\products\img-2.png" />
+    <Content Include="Css\images\products\img-3.png" />
+    <Content Include="Css\images\products\img-4.png" />
+    <Content Include="Css\images\products\img-5.png" />
+    <Content Include="Css\images\products\img-6.png" />
+    <Content Include="Css\images\products\img-7.png" />
+    <Content Include="Css\images\products\img-8.png" />
+    <Content Include="Css\images\profile-bg.jpg" />
+    <Content Include="Css\images\sidebar\img-1.jpg" />
+    <Content Include="Css\images\sidebar\img-2.jpg" />
+    <Content Include="Css\images\sidebar\img-3.jpg" />
+    <Content Include="Css\images\sidebar\img-4.jpg" />
+    <Content Include="Css\images\small\img-1.jpg" />
+    <Content Include="Css\images\small\img-10.jpg" />
+    <Content Include="Css\images\small\img-11.jpg" />
+    <Content Include="Css\images\small\img-12.jpg" />
+    <Content Include="Css\images\small\img-2.jpg" />
+    <Content Include="Css\images\small\img-3.jpg" />
+    <Content Include="Css\images\small\img-4.jpg" />
+    <Content Include="Css\images\small\img-5.jpg" />
+    <Content Include="Css\images\small\img-6.jpg" />
+    <Content Include="Css\images\small\img-7.jpg" />
+    <Content Include="Css\images\small\img-8.jpg" />
+    <Content Include="Css\images\small\img-9.jpg" />
+    <Content Include="Css\images\svg\bell.svg" />
+    <Content Include="Css\images\svg\crypto-icons\aave.svg" />
+    <Content Include="Css\images\svg\crypto-icons\ada.svg" />
+    <Content Include="Css\images\svg\crypto-icons\add.svg" />
+    <Content Include="Css\images\svg\crypto-icons\ant.svg" />
+    <Content Include="Css\images\svg\crypto-icons\ark.svg" />
+    <Content Include="Css\images\svg\crypto-icons\arn.svg" />
+    <Content Include="Css\images\svg\crypto-icons\atm.svg" />
+    <Content Include="Css\images\svg\crypto-icons\bcbc.svg" />
+    <Content Include="Css\images\svg\crypto-icons\bela.svg" />
+    <Content Include="Css\images\svg\crypto-icons\bix.svg" />
+    <Content Include="Css\images\svg\crypto-icons\bnb.svg" />
+    <Content Include="Css\images\svg\crypto-icons\btc.svg" />
+    <Content Include="Css\images\svg\crypto-icons\cs.svg" />
+    <Content Include="Css\images\svg\crypto-icons\dash.svg" />
+    <Content Include="Css\images\svg\crypto-icons\doge.svg" />
+    <Content Include="Css\images\svg\crypto-icons\dot.svg" />
+    <Content Include="Css\images\svg\crypto-icons\etc.svg" />
+    <Content Include="Css\images\svg\crypto-icons\eth.svg" />
+    <Content Include="Css\images\svg\crypto-icons\eur.svg" />
+    <Content Include="Css\images\svg\crypto-icons\fil.svg" />
+    <Content Include="Css\images\svg\crypto-icons\gbp.svg" />
+    <Content Include="Css\images\svg\crypto-icons\jpy.svg" />
+    <Content Include="Css\images\svg\crypto-icons\ltc.svg" />
+    <Content Include="Css\images\svg\crypto-icons\mkr.svg" />
+    <Content Include="Css\images\svg\crypto-icons\mln.svg" />
+    <Content Include="Css\images\svg\crypto-icons\neo.svg" />
+    <Content Include="Css\images\svg\crypto-icons\ppt.svg" />
+    <Content Include="Css\images\svg\crypto-icons\rise.svg" />
+    <Content Include="Css\images\svg\crypto-icons\sol.svg" />
+    <Content Include="Css\images\svg\crypto-icons\usdt.svg" />
+    <Content Include="Css\images\svg\crypto-icons\vtc.svg" />
+    <Content Include="Css\images\svg\crypto-icons\xmr.svg" />
+    <Content Include="Css\images\svg\crypto-icons\xpm.svg" />
+    <Content Include="Css\images\svg\crypto-icons\xrp.svg" />
+    <Content Include="Css\images\svg\crypto-icons\xsg.svg" />
+    <Content Include="Css\images\svg\crypto-icons\yfi.svg" />
+    <Content Include="Css\images\sweetalert2\email-verify.png" />
+    <Content Include="Css\images\sweetalert2\error-message.png" />
+    <Content Include="Css\images\sweetalert2\join-community.png" />
+    <Content Include="Css\images\sweetalert2\notification-message.png" />
+    <Content Include="Css\images\sweetalert2\success-message.png" />
+    <Content Include="Css\images\sweetalert2\warning-message.png" />
+    <Content Include="Css\images\user-illustarator-1.png" />
+    <Content Include="Css\images\user-illustarator-2.png" />
+    <Content Include="Css\images\users\avatar-1.jpg" />
+    <Content Include="Css\images\users\avatar-10.jpg" />
+    <Content Include="Css\images\users\avatar-2.jpg" />
+    <Content Include="Css\images\users\avatar-3.jpg" />
+    <Content Include="Css\images\users\avatar-4.jpg" />
+    <Content Include="Css\images\users\avatar-5.jpg" />
+    <Content Include="Css\images\users\avatar-6.jpg" />
+    <Content Include="Css\images\users\avatar-7.jpg" />
+    <Content Include="Css\images\users\avatar-8.jpg" />
+    <Content Include="Css\images\users\avatar-9.jpg" />
+    <Content Include="Css\images\users\multi-user.jpg" />
+    <Content Include="Css\images\users\user-dummy-img.jpg" />
+    <Content Include="Css\images\verification-img.png" />
+    <Content Include="Css\js\app.js" />
+    <Content Include="Css\js\layout.js" />
+    <Content Include="Css\js\pages\animation-aos.init.js" />
+    <Content Include="Css\js\pages\apexcharts-area.init.js" />
+    <Content Include="Css\js\pages\apexcharts-bar.init.js" />
+    <Content Include="Css\js\pages\apexcharts-boxplot.init.js" />
+    <Content Include="Css\js\pages\apexcharts-bubble.init.js" />
+    <Content Include="Css\js\pages\apexcharts-candlestick.init.js" />
+    <Content Include="Css\js\pages\apexcharts-column.init.js" />
+    <Content Include="Css\js\pages\apexcharts-heatmap.init.js" />
+    <Content Include="Css\js\pages\apexcharts-line.init.js" />
+    <Content Include="Css\js\pages\apexcharts-mixed.init.js" />
+    <Content Include="Css\js\pages\apexcharts-pie.init.js" />
+    <Content Include="Css\js\pages\apexcharts-polararea.init.js" />
+    <Content Include="Css\js\pages\apexcharts-radar.init.js" />
+    <Content Include="Css\js\pages\apexcharts-radialbar.init.js" />
+    <Content Include="Css\js\pages\apexcharts-scatter.init.js" />
+    <Content Include="Css\js\pages\apexcharts-timeline.init.js" />
+    <Content Include="Css\js\pages\apexcharts-treemap.init.js" />
+    <Content Include="Css\js\pages\apps-nft-auction.init.js" />
+    <Content Include="Css\js\pages\apps-nft-create.init.js" />
+    <Content Include="Css\js\pages\apps-nft-explore.init.js" />
+    <Content Include="Css\js\pages\apps-nft-item-details.init.js" />
+    <Content Include="Css\js\pages\apps-nft-ranking.init.js" />
+    <Content Include="Css\js\pages\calendar.init.js" />
+    <Content Include="Css\js\pages\card.init.js" />
+    <Content Include="Css\js\pages\chartjs.init.js" />
+    <Content Include="Css\js\pages\chat.init.js" />
+    <Content Include="Css\js\pages\coming-soon.init.js" />
+    <Content Include="Css\js\pages\crm-companies.init.js" />
+    <Content Include="Css\js\pages\crm-contact.init.js" />
+    <Content Include="Css\js\pages\crm-deals.init.js" />
+    <Content Include="Css\js\pages\crm-leads.init.js" />
+    <Content Include="Css\js\pages\crypto-buy-sell.init.js" />
+    <Content Include="Css\js\pages\crypto-kyc.init.js" />
+    <Content Include="Css\js\pages\crypto-orders.init.js" />
+    <Content Include="Css\js\pages\crypto-transactions.init.js" />
+    <Content Include="Css\js\pages\crypto-wallet.init.js" />
+    <Content Include="Css\js\pages\dashboard-analytics.init.js" />
+    <Content Include="Css\js\pages\dashboard-crm.init.js" />
+    <Content Include="Css\js\pages\dashboard-crypto.init.js" />
+    <Content Include="Css\js\pages\dashboard-ecommerce.init.js" />
+    <Content Include="Css\js\pages\dashboard-nft.init.js" />
+    <Content Include="Css\js\pages\dashboard-projects.init.js" />
+    <Content Include="Css\js\pages\datatables.init.js" />
+    <Content Include="Css\js\pages\echarts.init.js" />
+    <Content Include="Css\js\pages\ecommerce-cart.init.js" />
+    <Content Include="Css\js\pages\ecommerce-customer-list.init.js" />
+    <Content Include="Css\js\pages\ecommerce-order.init.js" />
+    <Content Include="Css\js\pages\ecommerce-product-checkout.init.js" />
+    <Content Include="Css\js\pages\ecommerce-product-create.init.js" />
+    <Content Include="Css\js\pages\ecommerce-product-details.init.js" />
+    <Content Include="Css\js\pages\ecommerce-product-list.init.js" />
+    <Content Include="Css\js\pages\form-advanced.init.js" />
+    <Content Include="Css\js\pages\form-editor.init.js" />
+    <Content Include="Css\js\pages\form-file-upload.init.js" />
+    <Content Include="Css\js\pages\form-input-spin.init.js" />
+    <Content Include="Css\js\pages\form-masks.init.js" />
+    <Content Include="Css\js\pages\form-pickers.init.js" />
+    <Content Include="Css\js\pages\form-validation.init.js" />
+    <Content Include="Css\js\pages\form-wizard.init.js" />
+    <Content Include="Css\js\pages\gallery.init.js" />
+    <Content Include="Css\js\pages\gmaps.init.js" />
+    <Content Include="Css\js\pages\gridjs.init.js" />
+    <Content Include="Css\js\pages\invoicecreate.init.js" />
+    <Content Include="Css\js\pages\invoicedetails.js" />
+    <Content Include="Css\js\pages\invoiceslist.init.js" />
+    <Content Include="Css\js\pages\landing.init.js" />
+    <Content Include="Css\js\pages\leaflet-map.init.js" />
+    <Content Include="Css\js\pages\leaflet-us-states.js" />
+    <Content Include="Css\js\pages\listjs.init.js" />
+    <Content Include="Css\js\pages\mailbox.init.js" />
+    <Content Include="Css\js\pages\materialdesign.list.js" />
+    <Content Include="Css\js\pages\modal.init.js" />
+    <Content Include="Css\js\pages\nestable.init.js" />
+    <Content Include="Css\js\pages\nft-landing.init.js" />
+    <Content Include="Css\js\pages\notifications.init.js" />
+    <Content Include="Css\js\pages\particles.app.js" />
+    <Content Include="Css\js\pages\passowrd-create.init.js" />
+    <Content Include="Css\js\pages\password-addon.init.js" />
+    <Content Include="Css\js\pages\plugins\lord-icon-2.1.0.js" />
+    <Content Include="Css\js\pages\pricing.init.js" />
+    <Content Include="Css\js\pages\profile-setting.init.js" />
+    <Content Include="Css\js\pages\profile.init.js" />
+    <Content Include="Css\js\pages\project-create.init.js" />
+    <Content Include="Css\js\pages\project-list.init.js" />
+    <Content Include="Css\js\pages\project-overview.init.js" />
+    <Content Include="Css\js\pages\range-sliders.init.js" />
+    <Content Include="Css\js\pages\rating.init.js" />
+    <Content Include="Css\js\pages\remix-icons-listing.js" />
+    <Content Include="Css\js\pages\search-result.init.js" />
+    <Content Include="Css\js\pages\select2.init.js" />
+    <Content Include="Css\js\pages\seller-details.init.js" />
+    <Content Include="Css\js\pages\sellers.init.js" />
+    <Content Include="Css\js\pages\sweetalerts.init.js" />
+    <Content Include="Css\js\pages\swiper.init.js" />
+    <Content Include="Css\js\pages\tasks-kanban.init.js" />
+    <Content Include="Css\js\pages\tasks-list.init.js" />
+    <Content Include="Css\js\pages\team.init.js" />
+    <Content Include="Css\js\pages\ticketdetail.init.js" />
+    <Content Include="Css\js\pages\ticketlist.init.js" />
+    <Content Include="Css\js\pages\timeline.init.js" />
+    <Content Include="Css\js\pages\tour.init.js" />
+    <Content Include="Css\js\pages\two-step-verification.init.js" />
+    <Content Include="Css\js\pages\vector-maps.init.js" />
+    <Content Include="Css\js\pages\widgets.init.js" />
+    <Content Include="Css\js\plugins.js" />
+    <Content Include="Css\libs\%40ckeditor\ckeditor5-build-classic\build\ckeditor.js" />
+    <Content Include="Css\libs\%40simonwep\pickr\pickr.min.js" />
+    <Content Include="Css\libs\%40simonwep\pickr\themes\classic.min.css" />
+    <Content Include="Css\libs\%40simonwep\pickr\themes\monolith.min.css" />
+    <Content Include="Css\libs\%40simonwep\pickr\themes\nano.min.css" />
+    <Content Include="Css\libs\%40tarekraafat\autocomplete.js\autoComplete.min.js" />
+    <Content Include="Css\libs\%40tarekraafat\autocomplete.js\css\autoComplete.css" />
+    <Content Include="Css\libs\%40tarekraafat\autocomplete.js\css\images\search.svg" />
+    <Content Include="Css\libs\aos\aos.css" />
+    <Content Include="Css\libs\aos\aos.js" />
+    <Content Include="Css\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="Css\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Css\libs\chart.js\chart.min.js" />
+    <Content Include="Css\libs\cleave.js\cleave.min.js" />
+    <Content Include="Css\libs\dom-autoscroller\dom-autoscroller.min.js" />
+    <Content Include="Css\libs\dragula\dragula.min.css" />
+    <Content Include="Css\libs\dragula\dragula.min.js" />
+    <Content Include="Css\libs\dropzone\dropzone-min.js" />
+    <Content Include="Css\libs\dropzone\dropzone.css" />
+    <Content Include="Css\libs\echarts\echarts.min.js" />
+    <Content Include="Css\libs\feather-icons\feather.min.js" />
+    <Content Include="Css\libs\fg-emoji-picker\fgEmojiPicker.js" />
+    <Content Include="Css\libs\filepond-plugin-file-encode\filepond-plugin-file-encode.min.js" />
+    <Content Include="Css\libs\filepond-plugin-file-validate-size\filepond-plugin-file-validate-size.min.js" />
+    <Content Include="Css\libs\filepond-plugin-image-exif-orientation\filepond-plugin-image-exif-orientation.min.js" />
+    <Content Include="Css\libs\filepond-plugin-image-preview\filepond-plugin-image-preview.min.css" />
+    <Content Include="Css\libs\filepond-plugin-image-preview\filepond-plugin-image-preview.min.js" />
+    <Content Include="Css\libs\filepond\filepond.min.css" />
+    <Content Include="Css\libs\filepond\filepond.min.js" />
+    <Content Include="Css\libs\fullcalendar\main.min.css" />
+    <Content Include="Css\libs\fullcalendar\main.min.js" />
+    <Content Include="Css\libs\glightbox\css\glightbox.min.css" />
+    <Content Include="Css\libs\glightbox\js\glightbox.min.js" />
+    <Content Include="Css\libs\gmaps\gmaps.min.js" />
+    <Content Include="Css\libs\gridjs\gridjs.umd.js" />
+    <Content Include="Css\libs\gridjs\theme\mermaid.min.css" />
+    <Content Include="Css\libs\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="Css\libs\jsvectormap\css\jsvectormap.min.css" />
+    <Content Include="Css\libs\jsvectormap\js\jsvectormap.min.js" />
+    <Content Include="Css\libs\jsvectormap\maps\canada.js" />
+    <Content Include="Css\libs\jsvectormap\maps\russia.js" />
+    <Content Include="Css\libs\jsvectormap\maps\spain.js" />
+    <Content Include="Css\libs\jsvectormap\maps\us-merc-en.js" />
+    <Content Include="Css\libs\jsvectormap\maps\world-merc.js" />
+    <Content Include="Css\libs\leaflet\images\layers-2x.png" />
+    <Content Include="Css\libs\leaflet\images\layers.png" />
+    <Content Include="Css\libs\leaflet\images\marker-icon.png" />
+    <Content Include="Css\libs\leaflet\leaflet.css" />
+    <Content Include="Css\libs\leaflet\leaflet.js" />
+    <Content Include="Css\libs\list.js\list.min.js" />
+    <Content Include="Css\libs\list.pagination.js\list.pagination.min.js" />
+    <Content Include="Css\libs\masonry-layout\masonry.pkgd.min.js" />
+    <Content Include="Css\libs\moment\min\moment.min.js" />
+    <Content Include="Css\libs\moment\moment.js" />
+    <Content Include="Css\libs\multi.js\multi.min.css" />
+    <Content Include="Css\libs\multi.js\multi.min.js" />
+    <Content Include="Css\libs\node-waves\waves.min.js" />
+    <Content Include="Css\libs\nouislider\nouislider.min.css" />
+    <Content Include="Css\libs\nouislider\nouislider.min.js" />
+    <Content Include="Css\libs\particles.js\particles.js" />
+    <Content Include="Css\libs\prismjs\prism.js" />
+    <Content Include="Css\libs\quill\quill.bubble.css" />
+    <Content Include="Css\libs\quill\quill.core.css" />
+    <Content Include="Css\libs\quill\quill.min.js" />
+    <Content Include="Css\libs\quill\quill.snow.css" />
+    <Content Include="Css\libs\rater-js\index.js" />
+    <Content Include="Css\libs\shepherd.js\css\shepherd.css" />
+    <Content Include="Css\libs\shepherd.js\js\shepherd.min.js" />
+    <Content Include="Css\libs\simplebar\simplebar.min.js" />
+    <Content Include="Css\libs\sortablejs\Sortable.min.js" />
+    <Content Include="Css\libs\sweetalert2\sweetalert2.min.css" />
+    <Content Include="Css\libs\sweetalert2\sweetalert2.min.js" />
+    <Content Include="Css\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="Css\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="Css\libs\wnumb\wNumb.min.js" />
+    <Content Include="Frm_RtRegs.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Css\fonts\boxicons.eot" />
+    <Content Include="Css\fonts\boxicons.svg%40" />
+    <Content Include="Css\fonts\boxicons.ttf" />
+    <Content Include="Css\fonts\boxicons.woff" />
+    <Content Include="Css\fonts\boxicons.woff2" />
+    <Content Include="Css\fonts\hkgrotesk-bold.woff" />
+    <Content Include="Css\fonts\hkgrotesk-light.eot" />
+    <Content Include="Css\fonts\hkgrotesk-light.woff" />
+    <Content Include="Css\fonts\hkgrotesk-medium.eot" />
+    <Content Include="Css\fonts\hkgrotesk-medium.woff" />
+    <Content Include="Css\fonts\hkgrotesk-regular.eot" />
+    <Content Include="Css\fonts\hkgrotesk-regular.woff" />
+    <Content Include="Css\fonts\hkgrotesk-semibold.eot" />
+    <Content Include="Css\fonts\hkgrotesk-semibold.woff" />
+    <Content Include="Css\fonts\la-brands-400.eot" />
+    <Content Include="Css\fonts\la-brands-400.eot%40" />
+    <Content Include="Css\fonts\la-brands-400.ttf" />
+    <Content Include="Css\fonts\la-brands-400.woff" />
+    <Content Include="Css\fonts\la-brands-400.woff2" />
+    <Content Include="Css\fonts\la-regular-400.eot" />
+    <Content Include="Css\fonts\la-regular-400.eot%40" />
+    <Content Include="Css\fonts\la-regular-400.ttf" />
+    <Content Include="Css\fonts\la-regular-400.woff" />
+    <Content Include="Css\fonts\la-regular-400.woff2" />
+    <Content Include="Css\fonts\la-solid-900.eot" />
+    <Content Include="Css\fonts\la-solid-900.eot%40" />
+    <Content Include="Css\fonts\la-solid-900.ttf" />
+    <Content Include="Css\fonts\la-solid-900.woff" />
+    <Content Include="Css\fonts\la-solid-900.woff2" />
+    <Content Include="Css\fonts\materialdesignicons-webfont.eot%40" />
+    <Content Include="Css\fonts\materialdesignicons-webfont.eot%40v=6.5.95" />
+    <Content Include="Css\fonts\materialdesignicons-webfont.ttf%40v=6.5.95" />
+    <Content Include="Css\fonts\materialdesignicons-webfont.woff%40v=6.5.95" />
+    <Content Include="Css\fonts\materialdesignicons-webfont.woff2%40v=6.5.95" />
+    <Content Include="Css\fonts\remixicon.eot%40t=1590207869815" />
+    <Content Include="Css\fonts\remixicon.svg%40t=1590207869815" />
+    <Content Include="Css\fonts\remixicon.ttf%40t=1590207869815" />
+    <Content Include="Css\fonts\remixicon.woff%40t=1590207869815" />
+    <Content Include="Css\fonts\remixicon.woff2%40t=1590207869815" />
+    <Content Include="Master\Retailer.Master" />
+    <Content Include="Master\Distributer.Master" />
+    <Content Include="Master\MDistributer.Master" />
+    <Content Include="Master\Admin.Master" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="RTPanel\Frm_Profile.aspx" />
+    <Content Include="RTPanel\RTHme.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AllClassess\AllClass.cs" />
+    <Compile Include="App_Start\AllClassess\ShowMessage.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FunApp\DataLayer.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Frm_RtRegs.aspx.cs">
+      <DependentUpon>Frm_RtRegs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frm_RtRegs.aspx.designer.cs">
+      <DependentUpon>Frm_RtRegs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Distributer.Master.cs">
+      <DependentUpon>Distributer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Distributer.Master.designer.cs">
+      <DependentUpon>Distributer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\MDistributer.Master.cs">
+      <DependentUpon>MDistributer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\MDistributer.Master.designer.cs">
+      <DependentUpon>MDistributer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Retailer.Master.cs">
+      <DependentUpon>Retailer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Retailer.Master.designer.cs">
+      <DependentUpon>Retailer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RTPanel\Frm_Profile.aspx.cs">
+      <DependentUpon>Frm_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RTPanel\Frm_Profile.aspx.designer.cs">
+      <DependentUpon>Frm_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RTPanel\RTHme.aspx.cs">
+      <DependentUpon>RTHme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RTPanel\RTHme.aspx.designer.cs">
+      <DependentUpon>RTHme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="DTPanel\" />
+    <Folder Include="MDPanle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49965</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44317/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
