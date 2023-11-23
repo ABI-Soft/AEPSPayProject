@@ -153,7 +153,7 @@
                                             <div>
                                                 <h5 class="text-primary">Welcome Back !</h5>
                                                 <p class="text-muted">Sign in to continue to Paynims Technology.</p>
-                                                <asp:Label ID="lblMessage" runat="server" Visible="false"></asp:Label>
+                                                <asp:Label ID="lblMessage" runat="server" Visible="false" Style="color:red"></asp:Label>
                                             </div>
 
                                             <div class="mt-4">

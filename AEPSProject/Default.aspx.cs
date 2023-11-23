@@ -14,11 +14,14 @@ namespace AEPSProject
     {
         DataLayer dl = new DataLayer();
         AllClass obj = new AllClass();
+        ClsAll tk = new ClsAll();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-
+                string tokenss = tk.NewTOken();
+                DateTime dt = DateTime.Now; // Or whatever
+                string s = dt.ToString("yyyyMMddHHmmss");
             }
         }
 

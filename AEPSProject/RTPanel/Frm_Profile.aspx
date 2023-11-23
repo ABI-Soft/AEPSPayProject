@@ -46,6 +46,9 @@
                             <div class="hstack text-white-50 gap-1">
                                 <div class="me-2"><i class="ri-map-pin-user-line me-1 text-white-75 fs-16 align-middle"></i><asp:Label ID="lbladdresss" runat="server"></asp:Label></div>
                                 <div>
+                                    <i class="ri-building-line me-1 text-white-75 fs-16 align-middle">AEPS ID</i><asp:Label ID="lblloginID" runat="server"></asp:Label></div>
+                                
+                                <div>
                                     <i class="ri-building-line me-1 text-white-75 fs-16 align-middle"></i>Paynims Technology
                                 </div>
                             </div>
@@ -94,26 +97,26 @@
                                         <i class="ri-price-tag-line d-inline-block d-md-none"></i><span class="d-none d-md-inline-block">Password Manager</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                              <%--  <li class="nav-item">
                                     <a class="nav-link fs-14" data-bs-toggle="tab" href="#documents" role="tab">
                                         <i class="ri-folder-4-line d-inline-block d-md-none"></i><span class="d-none d-md-inline-block">Pin Manager</span>
                                     </a>
-                                </li>
+                                </li>--%>
                                 <li class="nav-item">
                                     <a class="nav-link fs-14" data-bs-toggle="tab" href="#bank" role="tab">
                                         <i class="ri-folder-4-line d-inline-block d-md-none"></i><span class="d-none d-md-inline-block">Bank Details</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                              <%--  <li class="nav-item">
                                     <a class="nav-link fs-14" data-bs-toggle="tab" href="#rolemanager" role="tab">
                                         <i class="ri-folder-4-line d-inline-block d-md-none"></i><span class="d-none d-md-inline-block">Role  Manager</span>
                                     </a>
-                                </li>
-                                <li class="nav-item">
+                                </li>--%>
+                               <%-- <li class="nav-item">
                                     <a class="nav-link fs-14" data-bs-toggle="tab" href="#mapping" role="tab">
                                         <i class="ri-folder-4-line d-inline-block d-md-none"></i><span class="d-none d-md-inline-block">Mapping  Manager</span>
                                     </a>
-                                </li>
+                                </li>--%>
                             </ul>
                             <div class="flex-shrink-0">
                                 <a href="../Default.aspx" class="btn btn-success"><i class="bx bx-log-out-circle" style="font-size: 20px;"></i>&nbsp;<b style="margin-top: -30px;">Log out </b></a>
@@ -272,8 +275,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="modal-header" style="background-color: #405189; height: 60px">
-                                            <h5 class="modal-title" id="myLargeModalLabel"
-                                                style="color: white;">Kyc Data</h5>
+                                            <h5 class="modal-title" style="color: white;">Kyc Data</h5>
 
                                         </div>
                                         <div class="row">
@@ -285,8 +287,9 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Shop Name
                                                             </label>
-                                                            <input type="text" class="form-control" placeholder="Enter Vlaue" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                              <asp:TextBox ID="txtFrimName" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Shop Name"  autocomplete="off"></asp:TextBox>
+
+                                                          
                                                         </div>
                                                     </div>
                                                 </div>
@@ -301,8 +304,8 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Gst Number
                                                             </label>
-                                                            <input type="number" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                             <asp:TextBox ID="txtgstno" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Gst Number"  autocomplete="off" MaxLength="16"></asp:TextBox>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -316,8 +319,8 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Pan Card Number
                                                             </label>
-                                                            <input type="text" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                          <asp:TextBox ID="txtpanno" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Pan Card Number"  autocomplete="off" MaxLength="10"></asp:TextBox>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -333,8 +336,8 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Adhaar Card Number
                                                             </label>
-                                                            <input type="text" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                           <asp:TextBox ID="txtadharno" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Adhaar Card Number" MaxLength="12" autocomplete="off" onkeypress="return NumberOnly()"></asp:TextBox>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -348,8 +351,7 @@
                                         <br>
 
                                         <hr>
-                                         <asp:Button ID="btnkyc" runat="server"  class="btn"
-                                                    style="background-color: #405189; color: white; float: right;" OnClick="btnkyc_Click"  Text="Update KYC"/>
+                                         <asp:Button ID="btnkyc" runat="server"  class="btn" style="background-color: #405189; color: white; float: right;" OnClick="btnkyc_Click"  Text="Update KYC"/>
                                        
 
                                         <!--end row-->
@@ -363,8 +365,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="modal-header" style="background-color: #405189; height: 60px">
-                                            <h5 class="modal-title" id="myLargeModalLabel"
-                                                style="color: white;">Password Reset</h5>
+                                            <h5 class="modal-title" style="color: white;">Password Reset</h5>
 
                                         </div>
                                         <div class="row">
@@ -376,8 +377,23 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 New Password
                                                             </label>
-                                                            <input type="password" class="form-control" placeholder="Enter Vlaue" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                            <asp:TextBox ID="txtNewPass" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter your New Password"  autocomplete="off" TextMode="Password" ></asp:TextBox>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="col-6 col-md-4">
+                                                <div class="d-flex mt-4">
+                                                    <div class="flex-shrink-0 avatar-xs align-self-center me-3">
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <div class="mb-3">
+                                                            <label for="lastNameinput" class="form-label">
+                                                                Confirm Password
+                                                            </label>
+                                                             <asp:TextBox ID="txtcPassword" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Cinfirm Password"  autocomplete="off"></asp:TextBox>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -481,6 +497,21 @@
 
                                         </div>
                                         <div class="row">
+                                             <div class="col-6 col-md-4">
+                                                <div class="d-flex mt-4">
+
+                                                    <div class="flex-grow-1 overflow-hidden">
+                                                        <div class="mb-3">
+                                                            <label for="lastNameinput" class="form-label">
+                                                                Account Holder Name
+                                                            </label>
+                                                           <asp:TextBox ID="txtacholername" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Account Holder Name"  autocomplete="off"></asp:TextBox>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="col-6 col-md-4">
                                                 <div class="d-flex mt-4">
 
@@ -489,8 +520,8 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Account Number
                                                             </label>
-                                                            <input type="text" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                            <asp:TextBox ID="txtAccountNumber" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Account Number" autocomplete="off"></asp:TextBox>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -503,10 +534,10 @@
                                                     <div class="flex-grow-1 overflow-hidden">
                                                         <div class="mb-3">
                                                             <label for="lastNameinput" class="form-label">
-                                                                Bank Name
+                                                               Select Bank Name
                                                             </label>
-                                                            <input type="number" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                            <asp:DropDownList ID="ddlbank" runat="server" class="form-control" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;"  autocomplete="off" ></asp:DropDownList>
+                                                                   
                                                         </div>
                                                     </div>
                                                 </div>
@@ -520,8 +551,8 @@
                                                             <label for="lastNameinput" class="form-label">
                                                                 Ifsc Code
                                                             </label>
-                                                            <input type="text" class="form-control" placeholder="Enter Value" id="lastNameinput"
-                                                                style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;">
+                                                          <asp:TextBox ID="txtifsc" class="form-control" runat="server" Style="border: none; border-bottom: 1px solid #405189; border-radius: 0px;" placeholder="Enter Ifsc Code" autocomplete="off"></asp:TextBox>
+  
                                                         </div>
                                                     </div>
                                                 </div>

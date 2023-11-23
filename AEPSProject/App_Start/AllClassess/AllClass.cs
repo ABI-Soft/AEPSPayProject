@@ -24,6 +24,13 @@ namespace AEPSProject.App_Start.AllClassess
         public string Address { get; set; }
         public string PanID { get; set; }
         public string AdharImg { get; set; }
+        public string FirmName { get; set; }
+        public string GSTNO { get; set; }
+        public string BankID { get; set; }
+        public string IfscCode { get; set; }
+        public string AccountNo { get; set; }
+        public string AccountHolder { get; set; }
         public string EntryBy { get; set; }
+
     }
 }

@@ -161,7 +161,30 @@ namespace AEPSProject.App_Start.FunApp
             }
             return dt;
         }
+        public DataTable BindBAnk(string BankID)
+        {
+            DataTable dt = new DataTable();
+            Connection();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[Sp_tblLogin]";
+                cmd.Parameters.AddWithValue("@QueryType", "SBank");
+                cmd.Parameters.AddWithValue("@BankID", BankID);
+                cmd.CommandTimeout = 3600;
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
 
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
         public string UpdateProfile(AllClass obj)
         {
             Connection();
@@ -180,9 +203,6 @@ namespace AEPSProject.App_Start.FunApp
                 cmd.Parameters.AddWithValue("@DivisionKey", obj.DivisionKey);
                 cmd.Parameters.AddWithValue("@DistrictKey", obj.DistrictKey);
                 cmd.Parameters.AddWithValue("@Pincode", obj.PIncode);
-                cmd.Parameters.AddWithValue("@PanImg", obj.PanImg);
-                cmd.Parameters.AddWithValue("@AdharImg", obj.AdharImg);
-                
                 cmd.Parameters.AddWithValue("@MobileID", obj.MobileID);
                 cmd.Parameters.AddWithValue("@PKID", obj.ID);
                 
@@ -201,5 +221,136 @@ namespace AEPSProject.App_Start.FunApp
                 return Msg;
             }
         }
+        public string UpdateKYC(AllClass obj)
+        {
+            Connection();
+            string Msg = "";
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = cn;
+                cmd.CommandText = "Sp_tblLogin";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@QueryType", "UKYC");
+                cmd.Parameters.AddWithValue("@FirmName", obj.FirmName);
+                cmd.Parameters.AddWithValue("@PanID", obj.PanID);
+                cmd.Parameters.AddWithValue("@GSTNO", obj.GSTNO);
+                cmd.Parameters.AddWithValue("@AdharNo", obj.AdharNo);
+                cmd.Parameters.AddWithValue("@PanImg", obj.PanImg);
+                cmd.Parameters.AddWithValue("@AdharImg", obj.AdharImg);
+                cmd.Parameters.AddWithValue("@MobileID", obj.MobileID);
+                cmd.Parameters.AddWithValue("@PKID", obj.ID);
+                cmd.Parameters.AddWithValue("@EntryBy", obj.EntryBy);
+                cmd.Parameters.AddWithValue("Msg", "");
+                cmd.Parameters["Msg"].Direction = ParameterDirection.InputOutput;
+                cmd.Parameters["Msg"].Size = 256;
+                cmd.ExecuteNonQuery();
+                Msg = cmd.Parameters["Msg"].Value.ToString();
+                cn.Close();
+                return Msg;
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                return Msg;
+            }
+        }
+        public string SaveUpdateBank(AllClass obj)
+        {
+            Connection();
+            string Msg = "";
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = cn;
+                cmd.CommandText = "Sp_tblLogin";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@QueryType", "UB");
+                cmd.Parameters.AddWithValue("@PKID", obj.ID);
+                cmd.Parameters.AddWithValue("@MobileID", obj.MobileID);
+                cmd.Parameters.AddWithValue("@BankID", obj.BankID);
+                cmd.Parameters.AddWithValue("@IfscCode", obj.IfscCode);
+                cmd.Parameters.AddWithValue("@AccountNo", obj.AccountNo);
+                cmd.Parameters.AddWithValue("@AccountHolder", obj.AccountHolder);
+               
+                cmd.Parameters.AddWithValue("@EntryBy", obj.EntryBy);
+                cmd.Parameters.AddWithValue("Msg", "");
+                cmd.Parameters["Msg"].Direction = ParameterDirection.InputOutput;
+                cmd.Parameters["Msg"].Size = 256;
+                cmd.ExecuteNonQuery();
+                Msg = cmd.Parameters["Msg"].Value.ToString();
+                cn.Close();
+                return Msg;
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                return Msg;
+            }
+        }
+
+
+        public string UpdatePassword(AllClass obj)
+        {
+            Connection();
+            string Msg = "";
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = cn;
+                cmd.CommandText = "Sp_tblLogin";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@QueryType", "UPassword");
+                cmd.Parameters.AddWithValue("@Password", obj.Password);
+                cmd.Parameters.AddWithValue("@MobileID", obj.MobileID);
+                cmd.Parameters.AddWithValue("@PKID", obj.ID);
+                cmd.Parameters.AddWithValue("@EntryBy", obj.EntryBy);
+                cmd.Parameters.AddWithValue("Msg", "");
+                cmd.Parameters["Msg"].Direction = ParameterDirection.InputOutput;
+                cmd.Parameters["Msg"].Size = 256;
+                cmd.ExecuteNonQuery();
+                Msg = cmd.Parameters["Msg"].Value.ToString();
+                cn.Close();
+                return Msg;
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                return Msg;
+            }
+        }
+        public DataTable GetProfileDetail(string MobileNo, string LoginID)
+        {
+            DataTable dt = new DataTable();
+            Connection();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[dbo].[Sp_tblLogin]";
+                cmd.Parameters.AddWithValue("@QueryType", "GetDataProfile");
+                cmd.Parameters.AddWithValue("@MobileID", MobileNo);
+                cmd.Parameters.AddWithValue("@LoginID", LoginID);
+                cmd.CommandTimeout = 3600;
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
+
+
     }
 }

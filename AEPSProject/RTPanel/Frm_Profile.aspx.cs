@@ -19,8 +19,8 @@ namespace AEPSProject.RTPanel
             {
                 Response.Redirect("/Default.aspx");
             }
-          
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 lblname.Text = Session["UserName"].ToString();
                 lblroll.Text = Session["RollName"].ToString();
@@ -29,9 +29,41 @@ namespace AEPSProject.RTPanel
                 txtmobile.Text = Session["MobileID"].ToString();
                 HDNPKID.Value = Session["PKID"].ToString();
                 HDNRollFKID.Value = Session["RollFKID"].ToString();
+                lblloginID.Text = Session["LoginID"].ToString();
                 SetDivCombos();
+                SetBankCombos();
+                GetData();
 
             }
+        }
+        public void GetData()
+        {
+            try
+            {
+                DataTable dt = new DataLayer().GetProfileDetail(txtmobile.Text, lblloginID.Text);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    lblNameinput.Text = dt.Rows[0]["UserName"].ToString();
+                    txtmobile.Text = dt.Rows[0]["MobileID"].ToString();
+                    txtemail.Text = dt.Rows[0]["EmailID"].ToString();
+                    ddldiv.SelectedValue = dt.Rows[0]["DivisionKey"].ToString();
+                    getDistics(dt.Rows[0]["DivisionKey"].ToString());
+                    ddldist.SelectedValue = dt.Rows[0]["DistrictKey"].ToString();
+                    txtPincode.Text = dt.Rows[0]["Pincode"].ToString();
+                    txtAddress.Text = dt.Rows[0]["Address"].ToString();
+                    txtFrimName.Text = dt.Rows[0]["FirmName"].ToString();
+                    txtadharno.Text = dt.Rows[0]["AdharNo"].ToString();
+                    txtpanno.Text = dt.Rows[0]["PanID"].ToString();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
         private bool IsValidExtension(string filePath)
         {
@@ -84,7 +116,7 @@ namespace AEPSProject.RTPanel
         {
             try
             {
-               
+
                 DataTable Ds = new DataLayer().BindDivision(ddldiv.SelectedValue);
                 if (Ds != null && Ds.Rows.Count > 0)
                 {
@@ -112,27 +144,107 @@ namespace AEPSProject.RTPanel
             {
             }
         }
+        public void SetBankCombos()
+        {
+            try
+            {
+
+                DataTable Ds = new DataLayer().BindBAnk(ddlbank.SelectedValue);
+                if (Ds != null && Ds.Rows.Count > 0)
+                {
+                    ddlbank.Items.Clear();
+                    ddlbank.DataTextField = Ds.Columns["BankName"].ToString();
+                    ddlbank.DataValueField = Ds.Columns["BankID"].ToString();
+                    ddlbank.DataSource = Ds;
+
+                    ddlbank.DataBind();
+                    ListItem li = new ListItem();
+                    li.Text = "--select--";
+                    li.Value = "-1";
+                    ddlbank.Items.Insert(0, li);
+                    ddlbank.SelectedIndex = 0;
+
+                }
+                else
+                {
+                    ddlbank.DataSource = null;
+                    ddlbank.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
         protected void btnprofle_Click(object sender, EventArgs e)
         {
-            AllClass obj = new AllClass();
-            obj.EmailID = txtemail.Text.Trim();
-            obj.DivisionKey = Convert.ToInt32(ddldiv.SelectedValue.Trim());
-            obj.DistrictKey = Convert.ToInt32(ddldist.SelectedValue.Trim());
-            obj.MobileID = txtmobile.Text.Trim();
-            obj.PIncode = Convert.ToInt32(txtPincode.Text.Trim());
-            obj.Address = txtAddress.Text.Trim();
-            obj.ID = Convert.ToInt32(HDNPKID.Value);
-            string str = new DataLayer().UpdateProfile(obj);
-            ShowMessage.Show(str);
+            try
+            {
+                AllClass obj = new AllClass();
+                obj.EmailID = txtemail.Text.Trim();
+                obj.DivisionKey = Convert.ToInt32(ddldiv.SelectedValue.Trim());
+                obj.DistrictKey = Convert.ToInt32(ddldist.SelectedValue.Trim());
+                obj.MobileID = txtmobile.Text.Trim();
+
+                obj.PIncode = Convert.ToInt32(txtPincode.Text.Trim());
+                obj.Address = txtAddress.Text.Trim();
+                obj.ID = Convert.ToInt32(HDNPKID.Value);
+                obj.EntryBy = Session["MobileID"].ToString();
+                string str = new DataLayer().UpdateProfile(obj);
+                ShowMessage.Show(str);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         protected void btnkyc_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AllClass obj = new AllClass();
+                obj.GSTNO = txtgstno.Text.Trim();
+                obj.AdharNo = txtadharno.Text;
+                obj.PanID = txtpanno.Text.Trim();
+                obj.FirmName = txtFrimName.Text.Trim();
+                obj.ID = Convert.ToInt32(HDNPKID.Value);
+                obj.MobileID = Session["MobileID"].ToString();
+                string str = new DataLayer().UpdateKYC(obj);
+                ShowMessage.Show(str);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         protected void btnpassword_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AllClass obj = new AllClass();
+                if (txtNewPass.Text==txtcPassword.Text)
+                {
+                    obj.Password = txtNewPass.Text.Trim();
+                    obj.ID = Convert.ToInt32(HDNPKID.Value);
+                    obj.MobileID = Session["MobileID"].ToString();
+                    string str = new DataLayer().UpdatePassword(obj);
+                    ShowMessage.Show(str);
+                    Response.Redirect("/Default.aspx");
+                }
+                else
+                {
+                    ShowMessage.Show("Your Password and Confirm Password Do not Match");
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
 
@@ -143,15 +255,37 @@ namespace AEPSProject.RTPanel
 
         protected void btnBank_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AllClass obj = new AllClass();
 
+                obj.BankID = ddlbank.SelectedValue;
+                obj.AccountHolder = txtacholername.Text;
+                obj.AccountNo = txtAccountNumber.Text.Trim();
+                obj.IfscCode = txtifsc.Text.Trim();
+                obj.ID = Convert.ToInt32(HDNPKID.Value);
+                obj.MobileID = Session["MobileID"].ToString();
+                obj.EntryBy = Session["MobileID"].ToString();
+                string str = new DataLayer().SaveUpdateBank(obj);
+                ShowMessage.Show(str);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         protected void ddldiv_SelectedIndexChanged(object sender, EventArgs e)
         {
+            getDistics(ddldiv.SelectedValue);
+        }
+        public void getDistics(string division)
+        {
             try
             {
-               
-                DataTable Ds = new DataLayer().BindDisticts(ddldiv.SelectedValue);
+
+                DataTable Ds = new DataLayer().BindDisticts(division);
                 if (Ds != null && Ds.Rows.Count > 0)
                 {
                     ddldist.Items.Clear();
@@ -179,7 +313,8 @@ namespace AEPSProject.RTPanel
             }
         }
 
-       
+
+
 
         //public void UploadFile()
         //{
