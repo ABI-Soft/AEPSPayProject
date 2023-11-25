@@ -17,7 +17,8 @@ namespace AEPSProject
         ClsAll tk = new ClsAll();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            string tokens = tk.JWTNewToken();
+            if (!IsPostBack)
             {
                 string tokenss = tk.NewTOken();
                 DateTime dt = DateTime.Now; // Or whatever

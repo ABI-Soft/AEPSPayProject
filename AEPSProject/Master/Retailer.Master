@@ -814,6 +814,11 @@ data-sidebar-image="none">
                                                 data-key="t-horizontal">Authorization
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="../RTPanel/Frm_OnboardReg.aspx" target="_blank" class="nav-link"
+                                                data-key="t-horizontal">On Board
+                                            </a>
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -1169,7 +1174,7 @@ data-sidebar-image="none">
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
+
                                 </div>
                                 </div>
                             </div>

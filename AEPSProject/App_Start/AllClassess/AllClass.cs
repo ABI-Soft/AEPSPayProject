@@ -31,6 +31,7 @@ namespace AEPSProject.App_Start.AllClassess
         public string AccountNo { get; set; }
         public string AccountHolder { get; set; }
         public string EntryBy { get; set; }
+        public string CustName { get; set; }
 
     }
 }

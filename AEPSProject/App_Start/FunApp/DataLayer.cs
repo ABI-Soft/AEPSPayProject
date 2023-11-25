@@ -1,10 +1,15 @@
 ﻿using AEPSProject.App_Start.AllClassess;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 
 namespace AEPSProject.App_Start.FunApp
@@ -351,6 +356,58 @@ namespace AEPSProject.App_Start.FunApp
             return dt;
         }
 
+        public string CustomerDetails(AllClass obj)
+        {   
+            Connection();
+            string Msg = "";
+            try
+            {
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = cn;
+                //cmd.CommandText = "Sp_tblUserOnboard";
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@QueryType", "I");
+                //cmd.Parameters.AddWithValue("@CUST_NAME", obj.CustName);
+                //cmd.Parameters.AddWithValue("@MOBILEID", obj.MobileID);
+                //cmd.Parameters.AddWithValue("@ADHARNO", obj.AdharNo);
+                //cmd.Parameters.AddWithValue("@EMAILID", obj.EmailID);
+                //cmd.Parameters.AddWithValue("@FIRMNAME", obj.FirmName);
+                //cmd.Parameters["Msg"].Direction = ParameterDirection.InputOutput;
+                //cmd.Parameters["Msg"].Size = 256;
+                //cmd.ExecuteNonQuery();
+                //Msg = cmd.Parameters["Msg"].Value.ToString();
+                Msg = "Data inserted";
+                cn.Close();
+                return Msg;
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                return Msg;
+            }
+        }
+
+        public string OnboardApi(AllClass obj)
+        {
+         
+            var client = new RestClient("https://api.paysprint.in/api/v1/service/onboard/onboard/getonboardurl?Token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIxNzAwODM4MjA4IiwicGFydG5lcklkIjoiUFMwMDQ2ODkiLCJyZXFpZCI6IjM2MzU4MDIxOCJ9.6Fg7-Nr9IeR2bF0IRXuphqAcF6gZ-T9BFUCymV7OPmg&accept=application/json&content-type=application/json&Authorisedkey=MmVhMmZiODRiZjY1OTUyMTllNzdlMTQ5N2VjY2FhOTM=");
+           // client.Timeout = -1;
+            var request = new RestRequest("Payspring onboard",Method.Post);
+            request.AddHeader("Token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lc3RhbXAiOiIxNzAwODQwMTQwIiwicGFydG5lcklkIjoiUFMwMDQ2ODkiLCJyZXFpZCI6IjI4OTg1ODU2MiJ9.nbYn5jOxBmyjfaSUeDJOJVupd4rcfGYvAZsOM81l7zI");
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Authorisedkey", "MmVhMmZiODRiZjY1OTUyMTllNzdlMTQ5N2VjY2FhOTM=");
+            request.AddHeader("Cookie", "UqZBpD3n3iPIDwJU=v1M6t1g++Cm18; ci_session=b30afab7b6706394dd921a3f0b36bb46f34fca06");
+            request.AlwaysMultipartFormData = true;
+            request.AddParameter("CustName", obj.CustName);
+            request.AddParameter("MobileID", obj.MobileID);
+            request.AddParameter("AdharNO", obj.AdharNo);
+            request.AddParameter("EmailID", obj.EmailID);
+            request.AddParameter("firmName", "PAysprint");
+            request.AddParameter("callback", "https://paynims.in/Paysprint/");
+            RestResponse response = client.Execute(request);
+            return response.Content;
+            //Console.WriteLine(response.Content);
+        }
 
     }
 }
